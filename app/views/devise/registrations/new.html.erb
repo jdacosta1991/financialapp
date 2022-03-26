@@ -1,6 +1,8 @@
 <h1><%= t('.sign_up') %></h1>
+<!-- CREAMOS COLUMNAS EN BOOTSTRAP PARA EL DISEÑO -->
 <div class="row"> 
   <div class="col-9">
+<!-- COLUMNAS END--> 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= bootstrap_devise_error_messages! %>
 
