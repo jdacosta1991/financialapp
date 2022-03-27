@@ -5,15 +5,23 @@ class StocksController < ApplicationController
    #--CONDICIONAL PARA BUSQUEDAS INVALIDAS
     if params[:stock].present? 
 		  @stock = Stock.new_lookup(params[:stock])
-       if @stock
-         render 'users/my_portfolio'
-       else
-         flash[:alert] = "Please enter a symbol valid to search"
-         redirect_to my_portfolio_path
+      #--LINEA PARA QUE JAVASCRIPT MANEJE EL RESULTADO Y LAS ALERTAS
+      if @stock
+        respond_to do |format|
+          format.js { render partial: 'users/result' }
         end
+      else
+        respond_to do |format|
+          #--LOS MENSAJES FLASH.NOW PARA QUE NO TENGAN PERSISTENCIA EN LA PAG
+          flash.now[:alert] = "Please enter a symbol valid to search"
+          format.js { render partial: 'users/result' }
+        end
+      end
     else 
-      flash[:alert] = "Please enter a symbol to search"
-      redirect_to my_portfolio_path
+      respond_to do |format|
+        flash.now[:alert] = "Please enter a symbol to search"
+        format.js { render partial: 'users/result' }
+      end
     end
   end
 
