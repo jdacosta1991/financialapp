@@ -28,6 +28,7 @@ gem 'devise-bootstrap-views', '~> 1.0'
 gem 'iex-ruby-client'
 # GEMA PARA ICONOS EN RAILS
 gem "font-awesome-rails"
+gem 'hirb'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

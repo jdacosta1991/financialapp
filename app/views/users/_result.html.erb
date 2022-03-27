@@ -1,0 +1,13 @@
+<!-- RENDER PARA ALERTAS DE MENSAJES -->
+<div class="result-search">
+  <%= render 'layouts/messages' %>
+</div>
+<!-- AGREGAMOS LOS RESULTADOS DE SEARCH STOCK -->
+
+<% if @stock %>
+	<div class="card card-header result-search">
+		<strong>Symbol : </strong><a class="font-italic"><%= @stock.ticker %>  </a>
+		<strong>Company name : </strong><a class="font-italic"><%= @stock.name %>  </a>
+		<strong>Last price : </strong><a class="font-italic text-danger"><%= @stock.last_price %></a>
+	</div>
+<% end %>

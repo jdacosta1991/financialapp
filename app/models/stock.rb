@@ -1,4 +1,9 @@
 class Stock < ApplicationRecord
+#----AGREGAMOS LOS MANY TO MANY
+has_many :user_stocks
+has_many :users, through: :user_stocks
+#----AGREGAMOS UN VALIDATE
+validates :name, :ticker, presence: true
 #----DEFINIMOS EL METODO PARA OBTENER EL TICKER DESDE LA API
   def self.new_lookup(ticker_symbol)
 #----CODIGO PROPORCIONADO DESDE LA DOC DE LA API
