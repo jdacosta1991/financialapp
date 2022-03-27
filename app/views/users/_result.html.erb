@@ -1,7 +1,13 @@
 <!-- RENDER PARA ALERTAS DE MENSAJES -->
 <div class="result-search">
-  <%= render 'layouts/messages' %>
+	<div class="row">
+		<div class="col">
+			<%= render 'layouts/messages' %>
+		</div>
+	</div>
 </div>
+
+
 <!-- AGREGAMOS LOS RESULTADOS DE SEARCH STOCK -->
 
 <% if @stock %>
@@ -9,5 +15,7 @@
 		<strong>Symbol : </strong><a class="font-italic"><%= @stock.ticker %>  </a>
 		<strong>Company name : </strong><a class="font-italic"><%= @stock.name %>  </a>
 		<strong>Last price : </strong><a class="font-italic text-danger"><%= @stock.last_price %></a>
+		<%= link_to 'Add portfolio', user_stocks_path(user: current_user, ticker: @stock.ticker),
+		 											        class:"btn btn-success", method: :post	%>															
 	</div>
 <% end %>
