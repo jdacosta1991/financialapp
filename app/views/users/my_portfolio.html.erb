@@ -1,0 +1,28 @@
+<h1>My Portfolio</h1>
+<!-- MUESTRA EL TITULO Y UN SEARCH CON ATRIBUTOS DE DISEÑO-->
+<div class="search-area">
+  <h3>Search Stocks</h3>
+	<%= form_tag 'search_stock', method: :get do %>
+  	<div class="form-group row">
+  		<div class="col-sm-9 no-right-padding">
+				<%= text_field_tag :stock, params[:stock], 
+																	placeholder:"Stock ticker",
+																	autofocus: true,
+																	class:"form-control form-control -lg" %>
+			</div>
+			<div class="col-sm-3 no-left-padding">
+				<%= button_tag type: :submit, class:"btn btn-success" do %>
+					<%= fa_icon 'search 1x' %>
+				<% end %>
+			</div>		
+		</div>
+	<% end %>
+</div>
+<!-- AGREGAMOS LOS RESULTADOS DE SEARCH STOCK -->
+<% if @stock %>
+	<div class="card card-header result-search">
+		<strong>Symbol : </strong><a class="font-italic"><%= @stock.ticker %>  </a>
+		<strong>Company name : </strong><a class="font-italic"><%= @stock.name %>  </a>
+		<strong>Last price : </strong><a class="font-italic text-danger"><%= @stock.last_price %></a>
+	</div>
+<% end %>
