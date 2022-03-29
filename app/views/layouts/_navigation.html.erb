@@ -12,6 +12,10 @@
             <li class="nav-item <%= 'active' if request.path == my_portfolio_path%>">
               <%= link_to 'Portfolio', my_portfolio_path, class:"nav-item nav-link " %>
             </li>
+            <!--BOTON PARA FRIENDS -->
+            <li class="nav-item <%= 'active' if request.path == my_friends_path%>">
+              <%= link_to 'My friends', my_friends_path, class:"nav-item nav-link " %>
+            </li>
             <!-- //ANCHOR BOTON DROPDOWN BOOTSTRAP AÑADIDO -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
