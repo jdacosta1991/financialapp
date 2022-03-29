@@ -1,0 +1,29 @@
+<!--TABLA PARA MOSTRAR AMIGOS-->
+
+<div class="row">
+  <div class="col-9 mt-3">
+    <table class="table table-hover table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">email</th>
+          <th scope="col">First name/th>
+          <th scope="col">Last name</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+      <!--ITINERADOR PARA RESULTADOS -->
+      <% @friends.each do |friend| %>
+        <tr>
+          <th scope="row"><%= friend.email %></th>
+          <td><%= friend.first_name %></td>
+          <td><%= friend.last_name %></td>
+          <td><%= link_to 'Remove', '#', method: :delete,
+                                    data: { confirm: "Are you sure?"},
+                                    class:"btn btn-danger btn-sm"%></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

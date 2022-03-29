@@ -1,0 +1,17 @@
+<div class="result-search">
+			<%= render 'layouts/messages' %>
+</div>
+
+
+<!-- AGREGAMOS LOS RESULTADOS DE SEARCH STOCK -->
+
+<% if @friend %>
+	<div class="card card-header result-search">
+		<strong>Email : </strong><a class="font-italic"><%= @friend %>  </a>
+		<strong>Name: </strong><a class="font-italic"><%= @friend %>  </a>
+		<strong>Last name : </strong><a class="font-italic text-danger"><%= @friend %></a>
+		<%= link_to 'Follow', '#',
+		 											        class:"btn btn-success", method: :post	%>	
+  </div>
+    
+<% end %>
